@@ -1,0 +1,19 @@
+    <div class="notif">
+        <div *ngIf="notifications$ | async as notifications">
+            <div *ngFor="let notif of notifications">
+                <app-notification-item [notif]="notif"></app-notification-item>
+            </div>
+        </div>
+        
+    </div>
+    <style>
+        .notif {
+           
+            background: white;
+            flex-shrink: 0;
+            border-left: 1px solid #d6d6d6;
+            overflow: auto;
+            height: -webkit-fill-available;
+            display: flex;
+        }
+    </style>

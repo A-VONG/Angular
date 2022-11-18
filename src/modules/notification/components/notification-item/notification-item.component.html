@@ -1,0 +1,9 @@
+<div class="card" [style.backgroundColor]="notifInfo.viewed ? 'rgb(77, 230, 77)' : null">
+    <img *ngIf="notifInfo.photoUser" [src]=notifInfo.photoUser alt="Avatar" style="width:20%;border-radius: 10px;">
+    <div class="container">
+      <h4><b>{{notifInfo.subject}}</b></h4>
+      <p>{{notifInfo.message}}</p>
+      <span>{{notifInfo.date | dateFormat}}</span> <br>
+      <a (click)="viewNotif()" style="font-weight: 500;" >View Details</a>
+    </div>
+</div>

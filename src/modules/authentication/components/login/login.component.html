@@ -1,0 +1,59 @@
+<div class="login">
+  <form nz-form nzLayout="vertical" #f="ngForm" (submit)="submit()">
+    <nz-form-item>
+      <nz-form-label nzFor="username">Username</nz-form-label>
+      <nz-form-control nzErrorTip="username obligatoire">
+        <input
+          ngForm="username"
+          name="username"
+          type="username"
+          id="username"
+          [(ngModel)]="model.username"
+          required
+        />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label nzFor="password">Mot de passe</nz-form-label>
+      <nz-form-control nzErrorTip="password obligatoire">
+        <!--
+          TODO Ajouter l'input pour password avec le data-binding approprié
+          <input class="ant-input" type="password" name="password" id="password" #password="ngModel">
+         -->
+        <input
+          ngModel="this.model.password"
+          name="password"
+          type="password"
+          id="password"
+          [(ngModel)]="model.password"
+          required
+        />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control>
+        <button
+          class="login-button"
+          type="submit"
+          nz-button
+          nzType="default"
+          [disabled]="f.form.invalid"
+          (click)="login()"
+        >
+          Connexion
+        </button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+  <p class="divider">Pas encore enregistré ?</p>
+
+  <!-- TODO Rediriger sur la page de login au clic sur le bouton -->
+  <button
+    class="register-button"
+    nz-button
+    nzType="primary"
+    (click)="goToRegistration()"
+  >
+    Créer un compte
+  </button>
+</div>
